@@ -1,13 +1,23 @@
 export default function LoginPage(){
 
+    const goToHome = (e) => {
+        e.preventDefault();
+        window.location.href = "/";
+    }
+
     const register = (e) => {
         e.preventDefault();
         window.location.href = "/register";
     }
 
     return (
-        <div className="container mx-auto h-screen flex justify-center items-center">
+        <div className="container mx-auto h-screen flex flex-col justify-center items-center">
             <form action=""  id="login" className="shadow-xl rounded-lg md:w-80 px-5">
+                    <button onClick={goToHome} className="flex mb-7 text-burnt-sienna-700">
+                        <span className="mr-2"><svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#b9351c"><path d="M18.5 12H6m0 0l6-6m-6 6l6 6" stroke="#b9351c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span> 
+                        Home
+                    </button>
+
                     <h1 className="text-3xl font-bold text-center mb-5 text-nile-blue-900">Hello Again!</h1>
                     <p className="text-center mb-5 text-nile-blue-600">Enter your email to get started</p>
                     <div className="flex flex-col mb-3">
