@@ -8,11 +8,14 @@ const mongoose = require('mongoose')
 const app = express()
 const port = 3900
 
-const url = 'mongodb+srv://admin:jMmbyZHBMlUXEULP@cluster5.usshbxi.mongodb.net/?retryWrites=true&w=majority'
+//const url = 'mongodb+srv://admin:jMmbyZHBMlUXEULP@cluster5.usshbxi.mongodb.net/?retryWrites=true&w=majority'
+
+const url = 'mongodb://localhost:27017/api-instaya'
 
 mongoose.Promise = global.Promise
 
 const order_routes = require('./routes/order')
+const user_routes = require('./routes/user')
 
 
 //Cargamos Body Parser, es un middleware que nos permite convertir los datos que nos llegan por POST a JSON
@@ -31,6 +34,7 @@ app.use((req, res, next) => {
 
 
 app.use('/api', order_routes)
+app.use('/api', user_routes)
 
 
 mongoose.connect(url, { useNewUrlParser: true}).then(() => {
